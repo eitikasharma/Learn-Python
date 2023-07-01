@@ -1,0 +1,23 @@
+'''Open terminal
+pip install pandas
+pip install numpy
+pip install jupyter
+jupyter notebook  
+
+Jupyter notebook will be opened in browser
+'''
+
+import numpy as np
+import pandas as pd
+
+dict1= {
+  "name":['harry', 'rohan', 'aman', 'shubh'],
+  "marks":[89,76,88,92],
+  "city":['chd','kolkata','chennai','bangalore']
+}
+
+df=pd.DataFrame(dict1)    #Creates data frame=>excel sheet 
+
+print(df)                  #prints the data in excel format
+
+df.to_csv(info.csv)         #excel sheet 

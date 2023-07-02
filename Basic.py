@@ -301,4 +301,37 @@ print_sum(2,4)
 def print_sum(first,second=3):
   print(first+second) 
 
-print_sum(2)                       #5  '''
+print_sum(2)                       #5  
+
+# List Question
+
+def main():
+    names = []
+    # YOUR CODE GOES HERE
+    names.append("Robin")
+    names.append("Aman")
+    names.append("Rahul")
+
+    print(names)
+    return 0
+
+def number():
+  numbers=[23,54,67,76]
+  #print(numbers)
+  #for i in numbers:
+   # print(i)
+    
+  for i in range(len(numbers)):
+    print(numbers[i])
+
+number()
+
+if __name__ == '__main__':
+    main()                    '''
+
+
+
+
+
+
+

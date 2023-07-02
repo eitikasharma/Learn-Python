@@ -1,5 +1,19 @@
+# Pandas  => Open source library written in python 
+  Power and speed of numpy to make data analysis
+  Rich and robust data operations
+
+# Pandas Data Structure
+  1. Series- It's a 1D array with index, it stores a single column or row of data
+  2. Dataframe- It's a tabular spreadsheet like structure representing rows each of which contains one or multiple columns
+
+# A 1D array capable of holding any types of data- Series
+# A 2D array structure with columns of potential different types of data- DataFrame
+
+
 '''Open terminal
 pip install pandas
+pip install xlrd
+pip install openpyxl
 pip install numpy
 pip install jupyter
 jupyter notebook  
@@ -16,8 +30,151 @@ dict1= {
   "city":['chd','kolkata','chennai','bangalore']
 }
 
-df=pd.DataFrame(dict1)    #Creates data frame=>excel sheet 
+df=pd.DataFrame(dict1)    #Creates data in 2D i.e., rows and columns
 
 print(df)                  #prints the data in excel format
 
-df.to_csv(info.csv)         #excel sheet 
+df.to_csv(info.csv)         #saves the data in new excel file
+df.to_csv('data.csv', index=Flase)
+
+print(df.head(2))          # prints first 2 rows
+
+print(df.tail(1))          # prints last row
+
+print(df.describe())       # Shows count, mean,std,min,25%,50%,75%,max
+
+NewSheet = pd.read_csv(filename.csv)  # Can read other file's data
+NewSheet['column_name'][row] = new value   # Can update values directly 
+NewSheet.to_csv('NewSheet.csv')        # saves the updated value
+
+# Series
+ ser =pd.Series(np.random.rand(10))   # Stores random values in range upto 10
+print(type(ser))                     #class 'pandas.core.series.Series'
+
+#DataFrame 
+ newdf= pd.DataFrame(np.random.rand(334,5),index=np.arange(334))
+print(newdf.head(10))
+print(type(newdf))                     #class 'pandas.core.series.DataFrama'
+
+print(newdf.describe())
+
+print(newdf.dtypes)           # displays datatype of each column
+
+newdf[0][0] ="EITIKA"
+print(newdf.dtypes)
+print(newdf)
+
+print(newdf.index)        # prints all index values, along with its datatype and length
+
+print(newdf.to_numpy())   # converts into numpy array
+
+print(newdf.T)     # Transforms the array i.e., rows become columns and columns become rows
+
+print(newdf.sort_index(axis=1, ascending=False))    
+
+print(type(newdf[0]))     # displays datatype of column 1
+
+newdf2= newdf           # newdf2 is the view of newdf    # View is a virtual table based result.     #Acts like a pointer
+newdf2[0][0]=987
+print(newdf)           # At position [0][0], value is updated to 987
+
+newdf2= newdf.copy()    # newdf2 is the copy of newdf
+newdf2[0][0]=987
+print(newdf)           # No change on newdf
+
+newdf.loc[0][0] =876     # safe way to update values i.e., lock
+print(newdf.head(3))     
+
+newdf= newdf.drop(1, axis= 1)     # drop column 1 , axis=1 is column,  axis =0 is index
+print(newdf.head(5))
+
+print(newdf.loc[[1,2],[2,3]])     # displays only data of row 1,2 present in 2,3 column
+print(newdf.loc[:,[2,3]])         # All rows data present in 2,3 column
+print(newdf.loc[[1,2],[:]])       # data of row 1,2 present in all columns
+
+print(newdf.loc[(newdf[0]<0.3)])    # Displays data where value at 0 column is less than 0.3
+
+print(newdf.iloc[2,3])              #
+
+print(newdf.drop([1],axis=1))        #  deletes from view
+print(newdf)                         # shows the original full dataframe
+
+print(newdf,drop([1],axis=1, inplace=True))        # Deletes from the original dataframe
+
+newdf.reset_index(drop=True, inplace=True)         # resets the index, drop will delete the new index column created by reset_index, inplace will delete from the original datafame
+
+print(newdf[2].isnull())             # Displays all the rows have null value in column 2
+
+newdf[3]=None           #Not a good practice               # Sets value of column 3 None
+print(newdf)
+
+newdf.loc[:,3]=None        # Good practice
+print(newdf)
+
+
+df=pd.DataFrame({"name":['Alfed' , 'Batman' , 'Catwoman'], "toy":[np.nan, 'Batmobile', 'Bullwhip'], "born": [pd.NaT, pd.Timestamp("1940-04-25"), pd.NaT]})
+print(df)
+
+print(df.dropna())      # displays row which has no Na 
+
+
+df=pd.DataFrame({"name":['Alfed' , 'Batman' , 'Catwoman'], "toy":[np.NaN, np.NaN, np.NaN], "born": [pd.NaT, pd.Timestamp("1940-04-25"), pd.NaT]})
+print(df.dropna(how='all', axis=1))                # Displays only name and born column as toy column is NaN
+
+print(df.drop_duplicates(subset="name"))         # Removes duplicate
+
+print(df.drop_duplicates(subset="name",keep='first'))    # Keeps first duplicate record
+print(df.drop_duplicates(subset="name",keep='last'))     # keeps last duplicate record
+print(df.drop_duplicates(subset="name",keep=False))      # removes all duplicate records
+
+print(df.shape)      # gives no of column and rows
+
+print(df['toy'].value_counts(dropna=True))      #Shows counts of each item in toy column excluding NaN
+print(df['toy'].value_counts(dropna=False))     #Shows counts of each item in toy column including NaN 
+
+print(df.notnull())      # Displays 2D, Returns True if there is some value, False if Null
+print(df.isnull())       # Opposite of notnull()
+
+
+data=pd.read_excel('excelfile_name')       # displays data of new excel file in jupyter
+data=pd.read_excel('excelfile_name', sheet_name='Sheet2')   # Displays data of Sheet 2
+
+data.iloc[0,0]=34  
+data.to_excel('excelfile_name', sheet_name='Sheet2')       # updates sheet_name 
+
+
+"""Create a DataFrame which contains only integers with 3 rows and 2 columns
+Run following dataframe methods on them:
+  df.describe()
+  df.mean()
+  df.corr()
+  df.count()
+  df.max()
+  df.min()
+  df.median()
+  df.std()"""
+
+dir1={
+    "first":[1,2,3],
+    "second":[4,5,6]
+  }
+  
+df=pd.DataFrame(dir1)
+  
+print(df)
+print("****Describe*****")
+print(df.describe())
+print("****Mean*****")
+print(df.mean())
+print("****Corr*******")
+print(df.corr())
+print("****Count******")
+print(df.count())
+print("****Max*******")
+print(df.max())
+print("*****Min******")
+print(df.min())
+print("****Median******")
+print(df.median())
+print("****Std******")
+print(df.std())

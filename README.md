@@ -1,5 +1,6 @@
 # Learn-Python
 
+
 Python Overview
 
 -What is Python
@@ -21,6 +22,7 @@ Python Overview
 * It is used to create web applications.
 * It can be used to handle databases.
 * It is used in business and accounting to perform complex mathematical operations along with quantitative and qualitative analysis.
+
 
 Installation & Getting Started
 
@@ -47,3 +49,57 @@ Following command installs pandas package in Python:
 pip install pandas
 
 
+Syntax
+
+In simplest words, Syntax is the arrangement of words and phrases to create well-formed sentences in a language. In the case of a computer language, the syntax is the structural arrangement of comments, variables, numbers, operators, statements, loops, functions, classes, objects, etc. which helps us understand the meaning or semantics of a computer language.
+
+For E.g. a ‘comment’ is used to explain the functioning of a block of code. It starts with a ‘#’.
+
+For E.g. a block of code is identified by an ‘indentation’. Have a look at the following code, here print(i) is said to be indented with respect to the link above it. In simple words, indentation is the addition of spaces before the line "print(i)"
+for i in range(5):
+    print(i)
+
+
+Python Comments
+A comment is a part of the coding file that the programmer does not want to execute, rather the programmer uses it to either explain a block of code or to avoid the execution of a specific part of code while testing.
+
+Single-Line Comments:
+To write a comment just add a ‘#’ at the start of the line.
+
+Example 1:
+#This is a 'Single-Line Comment'
+print("This is a print statement.")
+Output:   This is a print statement. 
+ 
+Example 2:
+print("Hello World !!!") #Printing Hello World
+Output:   Hello World !!!
+ 
+Example 3:
+print("Python Program")
+#print("Python Program")
+Output:   Python Program
+
+Multi-Line Comments:
+To write multi-line comments you can use ‘#’ at each line or you can use the multiline string.
+
+Example 1: The use of ‘#’.
+#It will execute a block of code if a specified condition is true.
+#If the codition is false than it will execute another block of code.
+p = 7
+if (p > 5):
+    print("p is greater than 5.")
+else:
+    print("p is not greater than 5.")
+Output:   p is greater than 5.
+
+Example 2: The use of multiline string.
+"""This is an if-else statement.
+It will execute a block of code if a specified condition is true.
+If the condition is false then it will execute another block of code."""
+p = 7
+if (p > 5):
+    print("p is greater than 5.")
+else:
+    print("p is not greater than 5.")
+Output:   p is greater than 5.
